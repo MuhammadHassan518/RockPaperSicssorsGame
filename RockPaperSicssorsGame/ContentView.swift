@@ -74,42 +74,27 @@ struct ContentView: View {
                 .foregroundColor(.white)
             Spacer()
             Spacer()
-
-    }
-       
-        }.alert("your answer is ", isPresented: $showingScore)
-        {
-             Button("Continue", action: askQuestion)
         }
-            message:
-                    {
-                    Text(" \(scoreTitle) ")
-                    }
+       
+        }
+        .alert("your answer is ", isPresented: $showingScore)
+        { Button("Continue", action: askQuestion) }
+            message: { Text(" \(scoreTitle) ") }
             
             .alert("your answer is ", isPresented: $showingScore2)
-            {
-                 Button("Re-Start", action: askQuestion)
-            }
+            { Button("Re-Start", action: askQuestion) }
                 message:
-                   {
-                    Text("\(scoreTitle) Right Answer = \(newScore) and wrong answer = \(newNegScore)   Game Over")
-                   }
+                   { Text("\(scoreTitle) Right Answer = \(newScore) and wrong answer = \(newNegScore)   Game Over") }
+        
                    .alert("Congrate You win ", isPresented: $showingScore3)
-                   {
-                        Button("Re-Start", action: askQuestion)
-                   }
+                   { Button("Re-Start", action: askQuestion) }
                        message:
-                          {
-                           Text("You win hardly")
-                          }
+                          { Text("You win hardly")  }
+        
                           .alert("Congrate You win ", isPresented: $showingScore4)
-                          {
-                               Button("Re-Start", action: askQuestion)
-                          }
+                          { Button("Re-Start", action: askQuestion) }
                               message:
-                                 {
-                                  Text("You win with High score")
-                                 }
+                                 { Text("You win with High score") }
         
     }
     func newfun()
@@ -122,7 +107,7 @@ struct ContentView: View {
     func flagTapped(_ number: Int)
     {
 
-            count += 1
+        count += 1
         if count == 10
         {
              newScore = Score
@@ -131,20 +116,15 @@ struct ContentView: View {
              newfun()
             
             if newScore > 5 && newScore <= 8
-            {
-                showingScore3 = true
-            }
+            { showingScore3 = true }
+            
             if newScore > 8
-            {
-                showingScore4 = true
-            }
+            { showingScore4 = true }
             else
-            {
-                showingScore2 = true
-            }
+            { showingScore2 = true }
+         }
         
-                }
-        else {
+    else {
         if number == correctAnswer
             {
             scoreTitle = "Correct"
@@ -161,14 +141,16 @@ struct ContentView: View {
         }
     }
 
-   
     func askQuestion()
        {
-           Moves.shuffle()
+        Moves.shuffle()
         correctAnswer = Int.random(in: 0...2)
        }
-
 }
+
+
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
