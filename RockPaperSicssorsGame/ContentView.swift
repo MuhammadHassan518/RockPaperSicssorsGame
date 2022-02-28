@@ -52,7 +52,7 @@ struct ContentView: View {
                     .clipped()
                 }
             }
-            Toggle("", isOn: $ishidden)
+            Toggle("   Hint...?", isOn: $ishidden)
             VStack(spacing:10)
             {
             ForEach(0..<3)
